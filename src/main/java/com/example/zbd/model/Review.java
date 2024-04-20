@@ -7,7 +7,7 @@ import java.sql.Date;
 
 @Data
 @Entity
-@Table(name = "Reviews")
+@Table(name = "reviews")
 public class Review {
 
     @Id
@@ -15,7 +15,7 @@ public class Review {
     @Column(name = "review_id")
     private int id;
 
-    private double rating;
+    private int rating;
     private String comment;
     private Date review_date;
 

@@ -1,15 +1,13 @@
 package com.example.zbd.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Authors")
+@Table(name = "authors")
 public class Author {
 
     @Id

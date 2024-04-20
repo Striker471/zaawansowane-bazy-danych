@@ -8,15 +8,15 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Genres")
-public class Genres {
+@Table(name = "genres")
+public class Genre {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "genre_id")
     private int id;
 
-    private String genre_name;
+    private String genreName;
 
     @OneToMany(mappedBy = "genres")
     private List<Book> books;

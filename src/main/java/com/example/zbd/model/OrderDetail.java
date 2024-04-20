@@ -4,12 +4,10 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
-
 @Data
 @Entity
-@Table(name = "Order_Details")
-public class OrderDetails {
+@Table(name = "order_details")
+public class OrderDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

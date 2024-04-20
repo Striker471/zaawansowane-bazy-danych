@@ -8,7 +8,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 public class Order {
 
     @Id
@@ -26,5 +26,5 @@ public class Order {
     private Customer customer;
 
     @OneToMany(mappedBy = "order")
-    private List<OrderDetails> orderDetails;
+    private List<OrderDetail> orderDetails;
 }

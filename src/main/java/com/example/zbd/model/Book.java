@@ -3,11 +3,12 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.sql.Date;
 import java.util.List;
 
 @Data
 @Entity
-@Table(name = "Books")
+@Table(name = "books")
 public class Book {
 
 
@@ -17,7 +18,7 @@ public class Book {
     private int id;
 
     private String title;
-    private String publication_data;
+    private Date publication_date;
     private double price;
     private int stock_quantity;
 
@@ -27,11 +28,11 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "genre_id")
-    private Genres genres;
+    private Genre genres;
 
     @OneToMany(mappedBy = "book")
     public List<Review> reviews;
 
     @OneToMany(mappedBy = "book")
-    public List<OrderDetails> orderDetails;
+    public List<OrderDetail> orderDetails;
 }
