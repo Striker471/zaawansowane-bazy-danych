@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    @Query("select a.name, count(b) from Author a join a.books b")
+    @Query("select a.name, count(b) from Author a join a.books b group by a.name")
     List<AuthorWithBookAmountDto> getAuthorsWithBookAmount();
 }
