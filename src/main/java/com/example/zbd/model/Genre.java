@@ -18,6 +18,6 @@ public class Genre {
 
     private String genreName;
 
-    @OneToMany(mappedBy = "genres")
+    @OneToMany(mappedBy = "genre")
     private List<Book> books;
 }

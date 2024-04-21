@@ -28,7 +28,7 @@ public class Book {
 
     @ManyToOne
     @JoinColumn(name = "genre_id")
-    private Genre genres;
+    private Genre genre;
 
     @OneToMany(mappedBy = "book")
     public List<Review> reviews;
