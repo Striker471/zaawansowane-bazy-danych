@@ -9,5 +9,4 @@ public class ZbdApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ZbdApplication.class, args);
 	}
-
 }

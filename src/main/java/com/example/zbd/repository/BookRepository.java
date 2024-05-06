@@ -19,7 +19,4 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
 
     @Query("select b.title, a.name, g.genreName from Book b join b.author a join b.genre g ")
     List<BookWithAuthorsAndGenresDto> getBooksWithAuthorsAndGenres();
-
-
-
 }
