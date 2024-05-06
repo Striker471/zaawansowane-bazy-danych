@@ -4,6 +4,8 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @Entity
 @Table(name = "order_details")
@@ -15,7 +17,9 @@ public class OrderDetail {
     private int id;
 
     private int quantity;
-    private double unit_price;
+
+    @Column(name = "unit_price", precision = 10, scale = 2)
+    private BigDecimal unitPrice;
 
     @ManyToOne
     @JoinColumn(name = "order_id")

@@ -17,7 +17,9 @@ public class Review {
 
     private int rating;
     private String comment;
-    private Date review_date;
+
+    @Column(name = "review_date")
+    private Date reviewDate;
 
     @ManyToOne
     @JoinColumn(name = "book_id")

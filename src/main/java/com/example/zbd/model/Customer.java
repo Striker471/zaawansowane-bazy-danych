@@ -19,7 +19,9 @@ public class Customer {
     private String customer_name;
     private String email;
     private String address;
-    private String phone_number;
+
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
     @OneToMany(mappedBy = "customer")
     private List<Review> reviews;

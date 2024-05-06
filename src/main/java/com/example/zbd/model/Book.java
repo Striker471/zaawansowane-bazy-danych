@@ -3,6 +3,7 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
@@ -19,7 +20,9 @@ public class Book {
 
     private String title;
     private Date publication_date;
-    private double price;
+
+    @Column(precision = 10, scale = 2)
+    private BigDecimal price;
     private int stock_quantity;
 
     @ManyToOne

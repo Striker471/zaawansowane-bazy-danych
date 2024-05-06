@@ -106,7 +106,7 @@ public class DataGenerator implements CommandLineRunner {
             Book book = new Book();
             book.setTitle(record.get(0));
             book.setPublication_date(generateRandomDateWithSpecificYear(Integer.parseInt(record.get(2))));
-
+//            book.setPrice(faker.number().randomDouble(70, 0.5, 0.77));
 
             book.setGenre(genreList.get(generator.nextInt(genreSize)));
 

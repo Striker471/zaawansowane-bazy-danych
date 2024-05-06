@@ -3,6 +3,7 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.List;
 
@@ -19,7 +20,8 @@ public class Order {
     @Column(name = "order_date")
     private Date date;
 
-    private double total_price;
+    @Column(name = "total_price", precision = 10, scale = 2)
+    private BigDecimal totalPrice;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
