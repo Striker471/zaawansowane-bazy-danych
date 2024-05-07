@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.*;
 
 @Component
-@Profile("dev")
+@Profile("init")
 public class DataGenerator implements CommandLineRunner {
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
