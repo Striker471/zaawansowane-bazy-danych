@@ -16,7 +16,8 @@ public class Customer {
     @Column(name = "customer_id")
     private int id;
 
-    private String customer_name;
+    @Column(name = "customer_name")
+    private String customerName;
     private String email;
     private String address;
 
@@ -26,7 +27,7 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Review> reviews;
 
-    @OneToMany(mappedBy = "customer")   
+    @OneToMany(mappedBy = "customer")
     private List<Order> orders;
 
 }

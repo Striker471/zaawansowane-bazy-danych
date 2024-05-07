@@ -19,11 +19,15 @@ public class Book {
     private int id;
 
     private String title;
-    private Date publication_date;
+
+    @Column(name = "publication_date")
+    private Date publicationDate;
 
     @Column(precision = 10, scale = 2)
     private BigDecimal price;
-    private int stock_quantity;
+
+    @Column(name = "stock_quantity")
+    private int stockQuantity;
 
     @ManyToOne
     @JoinColumn(name = "author_id")

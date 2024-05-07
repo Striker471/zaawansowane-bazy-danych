@@ -96,7 +96,7 @@ public class DataGenerator implements CommandLineRunner {
         for (var record : books) {
             Book book = new Book();
             try {
-                book.setPublication_date(generateRandomDateWithSpecificYear(Integer.parseInt(record.get(2))));
+                book.setPublicationDate(generateRandomDateWithSpecificYear(Integer.parseInt(record.get(2))));
             } catch (Exception e) {
                 continue;
             }
@@ -110,7 +110,7 @@ public class DataGenerator implements CommandLineRunner {
 
             book.setTitle(record.get(0));
             book.setPrice(BigDecimal.valueOf(faker.number().randomDouble(2, 1, 120)));
-            book.setStock_quantity(faker.random().nextInt(300));
+            book.setStockQuantity(faker.random().nextInt(300));
             book.setGenre(genreList.get(faker.random().nextInt(genreSize)));
             book.setAuthor(author);
             bookRepository.save(book);
@@ -125,7 +125,7 @@ public class DataGenerator implements CommandLineRunner {
     public void fillCustomersTable() {
         for (int i = 0; i < 100000; i++) {
             Customer customer = new Customer();
-            customer.setCustomer_name(faker.name().fullName());
+            customer.setCustomerName(faker.name().fullName());
             customer.setEmail(faker.internet().emailAddress());
             customer.setAddress(faker.address().fullAddress());
             customer.setPhoneNumber(faker.phoneNumber().phoneNumber());
