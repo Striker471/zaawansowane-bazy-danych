@@ -148,7 +148,6 @@ public class DataGenerator implements CommandLineRunner {
 
                 BigDecimal totalPrice = new BigDecimal("0.0");
 
-
                 for (int j = 0; j < faker.random().nextInt(1, 7); j++) {
                     OrderDetail orderDetail = new OrderDetail();
                     orderDetail.setQuantity(faker.random().nextInt(1, 70));
@@ -178,7 +177,7 @@ public class DataGenerator implements CommandLineRunner {
         for (Customer customer : customerList) {
             if (faker.random().nextInt(10) == 0) {
                 Optional<Book> book = bookRepository.findById(faker.random().nextInt(1, bookAmount));
-                if(book.isPresent()){
+                if (book.isPresent()) {
                     Review review = new Review();
                     review.setCustomer(customer);
                     review.setReviewDate(generateRandomDateWithSpecificYear(faker.random().nextInt(2006, 2023)));

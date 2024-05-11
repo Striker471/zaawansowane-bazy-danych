@@ -9,11 +9,11 @@ import java.util.List;
 
 public interface GenreRepository extends JpaRepository<Genre, Integer> {
 
-    @Query("select g.genreName, avg(r.rating) as ratingAvg " +
+    @Query("select new com.example.zbd.dto.AverageRatingEachGenreDTO(g.genreName, avg(r.rating)) " +
             "from Genre g" +
             " join g.books b" +
             " join b.reviews r" +
             " group by g.genreName" +
-            " order by ratingAvg desc")
+            " order by avg(r.rating) desc")
     List<AverageRatingEachGenreDTO> findAverageRatingEachGenre();
 }

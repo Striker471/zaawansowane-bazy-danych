@@ -20,4 +20,5 @@ public class Genre {
 
     @OneToMany(mappedBy = "genre")
     private List<Book> books;
+
 }

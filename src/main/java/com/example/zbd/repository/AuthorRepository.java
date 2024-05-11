@@ -11,7 +11,10 @@ import java.util.Optional;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    @Query("select a.name, count(b) from Author a join a.books b group by a.name")
+    @Query("select new com.example.zbd.dto.AuthorWithBookAmountDto(a.name, count(b))" +
+            " from Author a" +
+            " join a.books b" +
+            " group by a.name")
     List<AuthorWithBookAmountDto> getAuthorsWithBookAmount();
 
     Optional<Author> findByName(String name);
