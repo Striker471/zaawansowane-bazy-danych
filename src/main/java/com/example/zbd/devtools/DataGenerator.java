@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.math.BigDecimal;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -117,9 +116,8 @@ public class DataGenerator implements CommandLineRunner {
         }
     }
 
-    private Date generateRandomDateWithSpecificYear(int year) {
-        LocalDate date = LocalDate.of(year, 1 + faker.random().nextInt(12), 1 + faker.random().nextInt(28));
-        return Date.valueOf(date);
+    private LocalDate generateRandomDateWithSpecificYear(int year) {
+        return LocalDate.of(year, 1 + faker.random().nextInt(12), 1 + faker.random().nextInt(28));
     }
 
     public void fillCustomersTable() {

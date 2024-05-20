@@ -3,7 +3,7 @@ package com.example.zbd.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.sql.Date;
+import java.time.LocalDate;
 
 @Data
 @Entity
@@ -19,7 +19,7 @@ public class Review {
     private String comment;
 
     @Column(name = "review_date")
-    private Date reviewDate;
+    private LocalDate reviewDate;
 
     @ManyToOne
     @JoinColumn(name = "book_id")

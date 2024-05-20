@@ -5,7 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Getter
@@ -23,7 +23,7 @@ public class Book {
     private String title;
 
     @Column(name = "publication_date")
-    private Date publicationDate;
+    private LocalDate publicationDate;
 
     @Column(precision = 10, scale = 2)
     private BigDecimal price;

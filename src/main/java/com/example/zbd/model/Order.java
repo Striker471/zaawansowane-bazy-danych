@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -18,7 +18,7 @@ public class Order {
     private int id;
 
     @Column(name = "order_date")
-    private Date date;
+    private LocalDate date;
 
     @Column(name = "total_price", precision = 10, scale = 2)
     private BigDecimal totalPrice;
