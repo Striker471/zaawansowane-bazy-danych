@@ -117,7 +117,7 @@ public class DataGenerator implements CommandLineRunner {
     }
 
     private LocalDate generateRandomDateWithSpecificYear(int year) {
-        return LocalDate.of(year, 1 + faker.random().nextInt(12), 1 + faker.random().nextInt(28));
+        return LocalDate.of(year,  1 + faker.random().nextInt(12), 1 + faker.random().nextInt(28));
     }
 
     public void fillCustomersTable() {

@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class AuthorWithBookAmountDto {
+public class AuthorWithBookAmountDTO {
 
     private String authorName;
     private Long bookAmount;

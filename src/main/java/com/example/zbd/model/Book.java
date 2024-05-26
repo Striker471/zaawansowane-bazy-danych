@@ -14,7 +14,6 @@ import java.util.List;
 @Table(name = "books")
 public class Book {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "book_id")
@@ -31,6 +30,7 @@ public class Book {
     @Column(name = "stock_quantity")
     private int stockQuantity;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
     @ManyToOne
     @JoinColumn(name = "author_id")
     private Author author;

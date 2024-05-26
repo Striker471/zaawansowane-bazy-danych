@@ -1,6 +1,7 @@
 package com.example.zbd.repository;
 
-import com.example.zbd.dto.BookWithAuthorsAndGenresDto;
+import com.example.zbd.dto.BestSellingBooksDTO;
+import com.example.zbd.dto.BookWithAuthorsAndGenresDTO;
 import com.example.zbd.dto.NumberEachBookSoldDTO;
 import com.example.zbd.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,7 +17,11 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
             " WHERE g.genreName = :genreName" +
             " ORDER BY b.title")
     List<Book> findByGenreName(@Param("genreName") String genreName);
+
+
     List<Book> findBooksByGenreGenreNameOrderByTitle(String genreName);
+
+    List<Book> findBooksByGenreGenreNameAndAuthorName(String genreName, String authorName);
 
 
     @Query("select new com.example.zbd.dto.NumberEachBookSoldDTO(b.title, SUM(o.quantity))" +
@@ -26,11 +31,17 @@ public interface BookRepository extends JpaRepository<Book, Integer> {
             " order by SUM(o.quantity) desc")
     List<NumberEachBookSoldDTO> findNumberEachBookSold();
 
-    @Query("select new com.example.zbd.dto.BookWithAuthorsAndGenresDto(b.title, a.name, g.genreName)" +
+    @Query("select new com.example.zbd.dto.BookWithAuthorsAndGenresDTO(b.title, a.name, g.genreName)" +
             " from Book b" +
             " join b.author a" +
             " join b.genre g ")
-    List<BookWithAuthorsAndGenresDto> getBooksWithAuthorsAndGenres();
+    List<BookWithAuthorsAndGenresDTO> findBooksWithAuthorsAndGenres();
 
-
+    @Query("select new com.example.zbd.dto.BestSellingBooksDTO(b.title, count(od.quantity), sum(od.quantity)) " +
+            "from Order o join o.orderDetails od " +
+            "join od.book b " +
+            "where o.date < current date - 1 year " +
+            "group by b.title " +
+            "order by sum(od.quantity) desc ")
+    List<BestSellingBooksDTO> findBestSellingBooks();
 }

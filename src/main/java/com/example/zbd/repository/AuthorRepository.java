@@ -1,6 +1,6 @@
 package com.example.zbd.repository;
 
-import com.example.zbd.dto.AuthorWithBookAmountDto;
+import com.example.zbd.dto.AuthorWithBookAmountDTO;
 
 import com.example.zbd.model.Author;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,11 +11,11 @@ import java.util.Optional;
 
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
-    @Query("select new com.example.zbd.dto.AuthorWithBookAmountDto(a.name, count(b))" +
+    @Query("select new com.example.zbd.dto.AuthorWithBookAmountDTO(a.name, count(b))" +
             " from Author a" +
             " join a.books b" +
             " group by a.name")
-    List<AuthorWithBookAmountDto> getAuthorsWithBookAmount();
+    List<AuthorWithBookAmountDTO> getAuthorsWithBookAmount();
 
     Optional<Author> findByName(String name);
 }
