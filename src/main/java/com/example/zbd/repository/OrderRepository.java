@@ -1,6 +1,7 @@
 package com.example.zbd.repository;
 
 import com.example.zbd.dto.BookStatsDTO;
+import com.example.zbd.dto.OrderWithCustomerDTO;
 import com.example.zbd.model.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -24,5 +25,11 @@ public interface OrderRepository extends JpaRepository<Order,Integer> {
             "ORDER BY SUM(od.quantity)")
     List<BookStatsDTO> findBookStatistics(@Param("startDate") LocalDate startDate,
                                           @Param("endDate") LocalDate endDate);
+
+
+    @Query("SELECT new com.example.zbd.dto.OrderWithCustomerDTO(c.customerName, c.address, c.email, c.phoneNumber, o.totalPrice) " +
+            "FROM Order o " +
+            "JOIN o.customer c")
+    List<OrderWithCustomerDTO> findOrdersWithCustomerDetails();
 
 }

@@ -1,5 +1,8 @@
 package com.example.zbd.devtools;
 
+import com.example.zbd.dto.AuthorWithBookAmountDTO;
+import com.example.zbd.dto.BookWithAuthorsAndGenresDTO;
+import com.example.zbd.dto.OrderWithCustomerDTO;
 import com.example.zbd.model.Book;
 import com.example.zbd.repository.*;
 import org.springframework.boot.CommandLineRunner;
@@ -50,9 +53,10 @@ public class TestOrmQuery implements CommandLineRunner {
 //            System.out.println(bookListOwn.get(i));
 //        }
 //        var bestSellingBooks = bookRepository.findBestSellingBooks();
-        orderRepository.findBookStatistics(LocalDate.of(2021, 1, 1), LocalDate.of(2021, 12, 31));
+        //orderRepository.findBookStatistics(LocalDate.of(2021, 1, 1), LocalDate.of(2021, 12, 31));
 //        List<AuthorWithBookAmountDto>  authorList = authorRepository.getAuthorsWithBookAmount();
-
+       // List<BookWithAuthorsAndGenresDTO> finf = bookRepository.findBooksWithAuthorsAndGenres();
+//        List<OrderWithCustomerDTO> c = orderRepository.findOrdersWithCustomerDetails();
 
     }
 }
